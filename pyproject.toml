@@ -1,0 +1,31 @@
+[project]
+name = "template"
+version = "0.1.0"
+description = "Template for FastAPI projects"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.15.2",
+    "asyncpg>=0.30.0",
+    "fastapi[all]>=0.115.12",
+    "psycopg2>=2.9.10",
+    "pydantic>=2.11.4",
+    "pytest>=8.3.5",
+    "python-dotenv>=1.1.0",
+    "sqlalchemy[asyncio]>=2.0.40",
+    "uvicorn>=0.34.2",
+]
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "isort>=6.0.1",
+    "mypy>=1.15.0",
+    "ruff>=0.11.8",
+]
+
+[tool.ruff]
+exclude = [
+    ".venv",
+    "alembic",
+    "tests/",
+    "**/__init__.py",
+]
