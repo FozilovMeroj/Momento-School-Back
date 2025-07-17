@@ -11,11 +11,11 @@ def load_routers(
     """
     Recursively load all FastAPI routers from a given package.
     """
-    for finder, name, ispkg in pkgutil.iter_modules([str(path)]):
+    for finder, name, is_pkg in pkgutil.iter_modules([str(path)]):
         module_name = f"{base_module}.{name}"
         full_path = path / name
 
-        if ispkg:
+        if is_pkg:
             load_routers(app, full_path, module_name, prefix + f"/{name}")
         else:
             module = importlib.import_module(module_name)
