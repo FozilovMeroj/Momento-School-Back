@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 from sqlalchemy import Boolean, Column, Date, Enum, String, Integer, DateTime
 
-from app.db import WithTimeStamp, Base
+from app.db import WithTimeStamp
 
 
 def default_token_expiry() -> datetime:
@@ -25,7 +25,7 @@ class User(WithTimeStamp):
         return f"<User(name='{self.name}', email='{self.email}')>"
 
 
-class Token(Base):
+class Token(WithTimeStamp):
     __tablename__ = "tokens"
 
     access_token: Column = Column(String(255), nullable=False, unique=True)
